@@ -1,0 +1,27 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="app">
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Node/Angular</title>
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script><!-- load angular -->
+	<script src="controllers/MainController.js"></script>
+
+</head>
+
+<body ng-controller="MainController as main">
+	<div class="container">
+
+		<!-- HEADER AND TODO COUNT -->
+		<div class="text-center">
+			<h1>Quem é você?</h1>
+            {{main.nome}}
+        </div>
+    </div>
+</body>        

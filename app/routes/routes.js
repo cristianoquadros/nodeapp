@@ -11,5 +11,10 @@ module.exports = function(app) {
         console.log('Chamando teste')
 
     });
+    
+    // application -------------------------------------------------------------
+    app.get('*', function(req, res) {
+        res.sendfile('./public/index.html'); 
+    });    
 
 };
