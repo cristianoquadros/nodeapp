@@ -1,17 +1,24 @@
-(function() {
-    "use strict";
+     angular.module("app", [])
+         .controller("MainController", 
     
-     angular
-        .module('app')
-        .controller('MainController', MainController);
+    function ($scope, $http) {
+            
+        function Contato() {
+            this.nome = '';
+            this.telefone = '';
+        }
         
-
-
-    function MainController($scope) {    
-        $scope.nome = "teste";    
-    }
-    
-    MainController.$inject =  ['$scope','$http'] ;
-    
-  
-});
+        $scope.contato = new Contato();        
+        $scope.contatos = [];
+        
+        $scope.adicionaContato = function() {
+          $http.get('/teste').success(function(data) {
+                $scope.contato = new Contato();
+                $scope.contato.nome=data.nome;
+                $scope.contato.telefone=data.telefone;
+                $scope.contatos.push($scope.contato);
+                
+                console.log('Inseriu o cara');
+            });
+        }
+    });

@@ -11,17 +11,35 @@
 
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script><!-- load angular -->
-	<script src="controllers/MainController.js"></script>
+	<script src="./controllers/MainController.js"></script>
 
 </head>
 
-<body ng-controller="MainController as main">
+<body  ng-controller='MainController as contato'>
 	<div class="container">
 
 		<!-- HEADER AND TODO COUNT -->
 		<div class="text-center">
-			<h1>Quem é você?</h1>
-            {{main.nome}}
+            <section>
+                <form ng-submit='adicionaContato()'>
+                    <input type='text' placeholder='nome' ng-model='contato.nome' />
+                    <input type='tel' placeholder='telefone' ng-model='contato.telefone' />
+                   <input type='submit' value='salvar' />
+                </form>
+            </section>
+            
+            <br/>
+                <table class="table table-striped">
+                <tr>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                </tr>
+                <tr ng-repeat='contato in contatos'>
+                    <td>{{contato.nome}}</td>
+                    <td>{{contato.telefone}}</td>
+                </tr>
+                </table>            
+            
         </div>
     </div>
 </body>        
