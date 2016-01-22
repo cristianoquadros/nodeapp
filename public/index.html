@@ -21,7 +21,7 @@
 		<!-- HEADER AND TODO COUNT -->
 		<div class="text-center">
             <section>
-                <form ng-submit='adicionaContato()'>
+                <form ng-submit='contato.adicionaContato()'>
                     <input type='text' placeholder='nome' ng-model='contato.nome' />
                     <input type='tel' placeholder='telefone' ng-model='contato.telefone' />
                    <input type='submit' value='salvar' />
@@ -34,7 +34,7 @@
                     <th>Nome</th>
                     <th>Telefone</th>
                 </tr>
-                <tr ng-repeat='contato in contatos'>
+                <tr ng-repeat='contato in contato.contatos'>
                     <td>{{contato.nome}}</td>
                     <td>{{contato.telefone}}</td>
                 </tr>
