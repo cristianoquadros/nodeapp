@@ -11,17 +11,19 @@
 
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script><!-- load angular -->
-	<script src="./controllers/MainController.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular-route.min.js"></script>    
+	<script src="./controllers/ContatoController.js"></script>
 
 </head>
 
-<body  ng-controller='MainController as contato'>
+<body  ng-controller='ContatoController as controler'>
 	<div class="container">
 
 		<!-- HEADER AND TODO COUNT -->
 		<div class="text-center">
             <section>
-                <form ng-submit='adicionaContato()'>
+                <form ng-submit='controler.adicionaContato()'>
                     <input type='text' placeholder='nome' ng-model='contato.nome' />
                     <input type='tel' placeholder='telefone' ng-model='contato.telefone' />
                    <input type='submit' value='salvar' />
@@ -34,9 +36,9 @@
                     <th>Nome</th>
                     <th>Telefone</th>
                 </tr>
-                <tr ng-repeat='contato in contatos'>
-                    <td>{{contato.nome}}</td>
-                    <td>{{contato.telefone}}</td>
+                <tr ng-repeat='item in controler.contatos'>
+                    <td>{{item.nome}}</td>
+                    <td>{{item.telefone | uppercase}}</td>
                 </tr>
                 </table>            
             
