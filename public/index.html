@@ -1,47 +1,90 @@
 <!doctype html>
+<html ng-app="rlab-app">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>  
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+	    <meta name="apple-mobile-web-app-status-bar-style" content="yes" />		
+  
+		<title>Hospital University</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>		
+		<link rel="stylesheet" href="js/mobile-angular/css/mobile-angular-ui-hover.min.css" />
+		<link rel="stylesheet" href="js/mobile-angular/css/mobile-angular-ui-base.min.css" />
+		<link rel="stylesheet" href="js/mobile-angular/css/mobile-angular-ui-desktop.min.css" />	
+	
+		<link rel="stylesheet" href="css/rlab-core.css"/>
+	 
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
-<!-- ASSIGN OUR ANGULAR MODULE -->
-<html ng-app="app">
-<head>
-	<!-- META -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular-route.min.js"></script>	
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular-resource.min.js"></script>	
+  		<script src="js/mobile-angular/js/mobile-angular-ui.min.js"></script>		
+  		<script src="js/mobile-angular/js/mobile-angular-ui.gestures.min.js"></script>
+  		<script src="js/datepicker/js/bootstrap-datepicker.js"></script>    	
+		
+		<script src="app.js"></script>		
+		<script src="controllers/activitiesController.js"></script>
+		<script src="controllers/patientController.js"></script>		
+		<script src="controllers/researchController.js"></script>
+		<script src="controllers/formController.js"></script>		
 
-	<title>Node/Angular</title>
+	</head>
+	
+	<body ui-prevent-touchmove-defaults>
+	    <!-- Sidebars -->
+	    <div ng-include="'sidebar.html'" 
+	            ui-track-as-search-param='true'
+	            class="sidebar sidebar-left"></div>
+	
+	    <div class="app" 
+	         ng-swipe-right='Ui.turnOn("uiSidebarLeft")'
+	         ng-swipe-left='Ui.turnOff("uiSidebarLeft")'>         
+	
+	      <!-- Navbars -->
+	
+	      <div class="navbar navbar-app navbar-absolute-top">
+	        <div class="navbar-brand navbar-brand-center" ui-yield-to="title">	        
+		     Atividades Recentes			
+	        </div>
+	        <div class="btn-group pull-left">
+	          <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
+	            <i class="fa fa-bars"></i>
+	          </div>
+	        </div>
+	      </div>
+	
+<!--
+	      <div class="navbar navbar-app navbar-absolute-bottom">
+	        <div class="btn-group justified">
+	          <a href="/docs" class="btn btn-navbar"><i class="fa fa-home fa-navbar"></i> Docs</a>
+	        </div>
+	      </div>
+	
+	
+-->
 
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script><!-- load angular -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular-resource.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular-route.min.js"></script>    
-	<script src="./controllers/ContatoController.js"></script>
 
-</head>
-
-<body  ng-controller='ContatoController as controler'>
-	<div class="container">
-
-		<!-- HEADER AND TODO COUNT -->
-		<div class="text-center">
-            <section>
-                <form ng-submit='controler.adicionaContato()'>
-                    <input type='text' placeholder='nome' ng-model='contato.nome' />
-                    <input type='tel' placeholder='telefone' ng-model='contato.telefone' />
-                   <input type='submit' value='salvar' />
-                </form>
-            </section>
-            
-            <br/>
-                <table class="table table-striped">
-                <tr>
-                    <th>Nome</th>
-                    <th>Telefone</th>
-                </tr>
-                <tr ng-repeat='item in controler.contatos'>
-                    <td>{{item.nome}}</td>
-                    <td>{{item.telefone | uppercase}}</td>
-                </tr>
-                </table>            
-            
-        </div>
-    </div>
-</body>        
+	      <!-- App Body -->
+	      <div class="app-body" ng-class="{loading: loading}">
+	        <div ng-show="loading" class="app-content-loading">
+	          <i class="fa fa-spinner fa-spin loading-spinner"></i>
+	        </div>
+	        <div class="app-content">
+	        
+	        
+	        
+	          <ng-view></ng-view>
+	        
+	        
+	        
+	        </div>
+	      </div>
+	
+	    </div>
+	
+	    <div ui-yield-to="modals"></div>	
+	
+	</body>
+</html>

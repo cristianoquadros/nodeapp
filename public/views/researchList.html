@@ -1,0 +1,32 @@
+<div ui-content-for="title">
+	<span>Minhas Pesquisas</span>
+</div>
+
+<div class="scrollable">
+
+	<div class="scrollable-content" ui-scroll-bottom='bottomReached()'>
+
+		<div class="list-group" ui-t urn-off='uiSidebarLeft'>
+
+			<a ng-repeat="item in items" class="list-group-item" href="#/fichade">
+				<div class="box-paciente">
+					<div class="paciente">
+						<div class="line-profile">
+						<span class="id-accountResearchHead">{{item.researchId}}</span> 
+						<span class="name-accountResearchHead">{{item.researchName}}</span> 
+						</div>
+						<!-- line-profile -->
+					</div>
+					<!-- research -->
+					<div class="wrap-arrow">
+						<i class="fa fa-chevron-right pull-right"></i>
+					</div>
+				</div>
+			</a>
+
+		</div>
+
+	</div>
+
+</div>
+

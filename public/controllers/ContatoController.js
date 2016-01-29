@@ -1,19 +1,24 @@
-//Angular Project
+/*
+** Angular Project
+**
+** Cristiano Quadros
+** 
+*/
 
 (function() {
     'use strict';
     
      angular
-        .module("app", ["ngResource"])
+        .module("rlab-app", ["ngResource"])
         .controller("ContatoController", ['$scope', 'ContatoService', ContatoController])
-        .factory("ContatoService",  ['$resource', ContatoService])
+        .factory("ContatoService",  ['$resource', ContatoService]);
         
         function ContatoController ($scope, ContatoService){
-            var vm = this;
+            var self = this;
             
-            vm.adicionaContato = adicionaContato;
+            self.adicionaContato = adicionaContato;
             $scope.contato = new Contato();        
-            vm.contatos = [];
+            self.contatos = [];
                 
             function Contato() {
                 this.nome = '';
@@ -27,8 +32,7 @@
                         $scope.contato = new Contato();
                         $scope.contato.nome = data.nome;
                         $scope.contato.telefone = data.telefone;
-                        vm.contatos.push($scope.contato);
-                        
+                        self.contatos.push($scope.contato);                        
                         console.log('Inseriu o cara');
                     })
             }
@@ -37,7 +41,7 @@
         function ContatoService ($resource) {
             var url = $resource('/teste/',null,
                 {'get': { method: 'GET'}});
-                return url;       
+            return url;       
         }
     
 })();
