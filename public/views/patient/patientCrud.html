@@ -1,0 +1,34 @@
+<div ui-content-for="title">
+	<span>Meus Pacientes</span>
+</div>
+
+<div class="scrollable">
+
+	<div class="container">
+        
+        <br/>
+        <h4>Cadastro de Pacientes</h4>        
+
+        <form class="form-horizontal" role="form" ng-submit="controller.submitForm" novalidate>
+            <div ng-messages="paciente.nome.$error">
+                <p ng-message="required">Você deve preencher o campo nome!</p>
+            </div>                           
+            
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input id="name" type="text" ng-model="paciente.nome" class="form-control" required>
+            </p>
+            <div class="form-group">
+                <div class="col-xs-2">
+                    <label  for="age">Idade</label>
+                    <input id="age" type="text" ng-model="paciente.idade" size="2" class="form-control">
+                </div>
+             </div>           
+        
+             <button type="button" class="btn btn-primary">Salvar</button>        
+        </form>
+
+
+	</div>
+
+</div>

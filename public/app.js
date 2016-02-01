@@ -8,9 +8,17 @@
 	'use strict';
 
 	angular
-        .module('rlab-app', ['ngResource', 'ngRoute', 'mobile-angular-ui'])
+        .module('rlab-app',[
+        'ngResource', 
+        'ngRoute', 
+        'ngMessages', 
+        'mobile-angular-ui'])
     	.config(['$routeProvider', viewRouter])
-        .controller('MainController', ['$rootScope', '$scope', MainController]);
+        .controller('MainController', ['$rootScope', '$scope', MainController])
+        .factory('GlobalService', ['$location', GlobalService])
+        .run(function($rootScope, GlobalService) {
+            $rootScope.service = GlobalService;  
+        });    
     
     function viewRouter($routeProvider){
         $routeProvider
@@ -31,12 +39,18 @@
             })
             .when('/patient', {
                 controller:'PatientController as controller',
-                templateUrl:'views/patientList.html',
+                templateUrl:'views/patient/patientList.html',
                 reloadOnSearch: false
             })
+            .when('/newpatient', {
+                controller:'PatientController as controller',
+                templateUrl:'views/patient/patientCrud.html',
+                reloadOnSearch: false
+            })            
             .otherwise({
                redirectTo: '/'
             });
+            //$locationProvider.html5Mode(true);
 	}; 	
 	
     function MainController($rootScope, $scope){
@@ -53,5 +67,17 @@
 		    $rootScope.loading = false;
 		  });	
 	};	  
-	
-})();	
+    
+    function GlobalService ($location) {
+        var service = {
+            go : go
+        };
+        
+        function go(path) {
+                $location.path( path ); 
+        }            
+        
+        return service;    
+    }    
+    
+})();

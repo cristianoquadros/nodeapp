@@ -10,30 +10,53 @@
     
      angular
         .module("rlab-app")
-        .controller("PatientController", ['$scope', 'PatientService', PatientController])
+        .controller("PatientController", ['$scope', '$location', 'PatientService', PatientController])
         .factory("PatientService",  ['$resource', PatientService]);
         
-        function PatientController ($scope, PatientService){
-            var self = this;            
-            self.getPatientList = getPatientList; 
+        function PatientController ($scope, $location, PatientService){
+            var self = this;
+            self.init = init;
             $scope.items = {};
+            $scope.paciente = new Paciente();
+
+            //Execute
+            self.init();
             
-            self.getPatientList();
+            function Paciente() {
+                this.nome = '';
+                this.idade = '';
+            } 
            
-            function getPatientList() {
-                PatientService
-                    .query(null, 
+            function init() {
+                PatientService.getPatientList().query(null, 
                     function(result) {
                         $scope.items = result;                       
                     })
             }
+              
+            function submitForm() {
+              //  self.persist
+              //      .post(null);
+            }           
         }     
   
         function PatientService ($resource) {
             var urlBase = '/patient/';
+            var service = {
+                getPatientList : getPatientList,
+                persist : persist
+            };
+            return service;
             
-            var url = $resource(urlBase,null,
-                {'get': { method: 'GET'}, isArray:true});
-            return url;       
+            function getPatientList(){
+                var url = $resource(urlBase + "list",null,
+                    {'get': { method: 'GET'}, isArray:true});
+                return url;       
+            };
+            
+            function persist(){
+                var url = $resource(self.urlBase+ "persist");
+                return url;       
+            };           
         }    
 })();

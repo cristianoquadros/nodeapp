@@ -10,8 +10,17 @@ module.exports = function(app) {
             telefone:req.query.fone+"99"});
     })
     
-    .get('/patient/', function(req, res) {
+    .get('/patient/list', function(req, res) {
         console.log('Call Rest Function');
+        
+        var Paciente = require('./models/paciente');
+        
+	    Paciente.find(function(err, todos) {
+			if (err){
+				res.send(err);
+            }
+			res.json(todos);
+		});        
         
         var result = '[' +
         '{ "name":"John Lennon" , "age":45, "record":5},' +
