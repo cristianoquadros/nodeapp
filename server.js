@@ -11,8 +11,8 @@
     // Openshift
     var ipaddress = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
     var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
-    var dbUrl     = process.env.OPENSHIFT_MONGODB_DB_URL || `localhost:27017`;
-    var appName   = process.env.OPENSHIFT_APP_NAME || `/nodeapp`;
+    var dbUrl     = process.env.OPENSHIFT_MONGODB_DB_URL || 'localhost:27017';
+    var appName   = process.env.OPENSHIFT_APP_NAME || '/nodeapp';
 
 
     // configuration
