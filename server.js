@@ -1,3 +1,4 @@
+/* global __dirname */
     // set up 
     var express   = require('express');
     var fs        = require('fs');
@@ -10,8 +11,8 @@
     // Openshift
     var ipaddress = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
     var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
-    var dbUrl     = process.env.OPENSHIFT_MONGODB_DB_URL;
-    var appName   = process.env.OPENSHIFT_APP_NAME;
+    var dbUrl     = process.env.OPENSHIFT_MONGODB_DB_URL || `localhost:27017`;
+    var appName   = process.env.OPENSHIFT_APP_NAME || `/nodeapp`;
 
 
     // configuration
@@ -24,6 +25,10 @@
 
     // database
     mongoose.connect(dbUrl + appName); 	
+    var db = mongoose.connection;
+    db.once('open', function() {
+        console.log('Mongo connect');
+    });
 
     // routes 
     require('./app/routes/routes.js')(app);

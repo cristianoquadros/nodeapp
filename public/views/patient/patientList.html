@@ -13,10 +13,10 @@
 					<div class="paciente">
 						<div class="line-profile">
 							<span class="name-paciente">{{item.name}}</span> <span
-								class="idade-paciente">{{item.age}} ano(s)</span>
+								class="idade-paciente">{{item.birth  | date:'dd/MM/yyyy'}}</span>
 						</div>
 						<div class="line-profile">
-							<span class="prontuario">{{item.record}}</span>
+							<span class="prontuario">{{item.code }}</span>
 							<div class="form-status">
 								<span class="qtd-fichas">0 ficha(s)</span>
 							</div>

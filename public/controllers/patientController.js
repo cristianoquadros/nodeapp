@@ -16,6 +16,7 @@
         function PatientController ($scope, $location, PatientService){
             var self = this;
             self.init = init;
+            $scope.submitForm = submitForm;
             $scope.items = {};
             $scope.paciente = new Paciente();
 
@@ -23,8 +24,9 @@
             self.init();
             
             function Paciente() {
-                this.nome = '';
-                this.idade = '';
+                this.name = null;
+                this.code = null;
+                this.birth = null;
             } 
            
             function init() {
@@ -35,8 +37,12 @@
             }
               
             function submitForm() {
-              //  self.persist
-              //      .post(null);
+                PatientService.persist().save($scope.paciente, 
+                    function(data) {
+                          Console.log('Registro Salvo');
+                          $scope.paciente = new Paciente(); 
+                    })
+                $location.path('/patient');    
             }           
         }     
   
@@ -49,14 +55,17 @@
             return service;
             
             function getPatientList(){
-                var url = $resource(urlBase + "list",null,
+                var resource = $resource(urlBase + "list",null,
                     {'get': { method: 'GET'}, isArray:true});
-                return url;       
+                return resource;       
             };
             
             function persist(){
-                var url = $resource(self.urlBase+ "persist");
-                return url;       
+                var resource = $resource(urlBase+ "save",
+                     { name: '@name', code: '@code', birth: '@birth' }, 
+                     {'save': { method: 'POST' }
+                });
+                return resource;       
             };           
         }    
 })();
