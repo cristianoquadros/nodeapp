@@ -10,9 +10,8 @@
     
      angular
         .module("rlab-app")
-        .controller("PatientController", ['$scope', '$location', 'PatientService', PatientController])
-        .factory("PatientService",  ['$resource', PatientService]);
-        
+        .controller("PatientController", ['$scope', '$location', 'PatientService', PatientController]);
+     
         function PatientController ($scope, $location, PatientService){
             var self = this;
             self.init = init;
@@ -45,27 +44,4 @@
                 $location.path('/patient');    
             }           
         }     
-  
-        function PatientService ($resource) {
-            var urlBase = '/patient/';
-            var service = {
-                getPatientList : getPatientList,
-                persist : persist
-            };
-            return service;
-            
-            function getPatientList(){
-                var resource = $resource(urlBase + "list",null,
-                    {'get': { method: 'GET'}, isArray:true});
-                return resource;       
-            };
-            
-            function persist(){
-                var resource = $resource(urlBase+ "save",
-                     { name: '@name', code: '@code', birth: '@birth' }, 
-                     {'save': { method: 'POST' }
-                });
-                return resource;       
-            };           
-        }    
 })();

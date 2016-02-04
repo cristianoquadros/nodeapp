@@ -27,16 +27,15 @@
     mongoose.connect(dbUrl + appName); 	
     var db = mongoose.connection;
     db.once('open', function() {
-        console.log('Mongo connect');
+        console.log('Mongo DB connect');
     });
 
     // routes 
-    require('./app/routes/routes.js')(app);
+    require('./app/routes/defaultRoute.js')(app);
+    require('./app/routes/pacienteRoute.js')(app);    
 
     // listen 
     app.listen(port, ipaddress, function() {
-        console.log('%s: Node server started on %s:%d ...',
-                    Date(Date.now() ), ipaddress, port);
-    });    
-    console.log("App listening on port " + port);
+        console.log('%s: Node server started on %s:%d ...', Date(Date.now() ), ipaddress, port);
+    }); 
     
