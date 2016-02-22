@@ -1,673 +1,731 @@
-
 <div ui-content-for="title">
-	<span>Formulário</span>
+    <span>Formulário</span>
 </div>
 
 <div class="scrollable">
 
-	<div class="scrollable-content" ui-scroll-bottom='bottomReached()'>
+    <div class="scrollable-content" ui-scroll-bottom='bottomReached()'>
 
-     <section>
-       <div id="tabs" class="area-forms"> 
+        <section>
+            <div id="tabs" class="area-forms">
 
-        <ul class="nav nav-tabs" style="margin:10px auto; display:table; text-align:center;">
-            <li ng-repeat="tab in tabs" data-toggle="tab"                
-                ng-class="{active:controller.isActiveTab(tab.url)}" 
-                ng-click="controller.onClickTab(tab)">{{tab.title}}
-            </li>
-        </ul>
-        <div id="mainView" class="area-forms">
-          <div class="tab-content">        
-            <div ng-include="currentTab"></div>
-          </div>  
-        </div>
-    </div>
-    
-    <script type="text/ng-template" id="aba1.tpl.html">
-
-		<div class="tab-pane active" id="viewOne">
-			<ul class="nav nav-tabs-dot" style="margin:0 auto; display:table; text-align:center;">
-               <li ng-click="controller.onClickSubTab('tab1-step1')" data-toggle="tab" ng-class="{active:controller.isActiveSubTab('tab1-step1')}" ></li>
-               <li ng-click="controller.onClickSubTab('tab1-step2')" data-toggle="tab" ng-class="{active:controller.isActiveSubTab('tab1-step2')}"></li>
-           </ul>
-           
-           <div class="tab-pane active" id="tab1-step1" ng-show="controller.isActiveSubTab('tab1-step1')">
-               <h4 class="page-header">Identification</h4>
-               <p class="text-center">Apresentação</p>
-                   <div class="form-group">
-                   <h3 class="text-center" style="margin-bottom:50px;">&lt;Research Goal&gt;</h3>
-                   </div>  
-                   <div class="form-group">
-                   <h3 class="text-center" style="margin-bottom:50px;">&lt;Author&gt;</h3>
-                   </div> 
-                   <div class="form-group" style="margin-bottom:50px;">
-                   <h3 class="text-center">&lt;Other Header Information&gt;</h3>
-                   </div> 
-                   <p class="text-right">November/2015</p>  
-               </li>
-              </div> 
-               
-              <div class="tab-pane" id="tab1-step2" ng-show="controller.isActiveSubTab('tab1-step2')">
-                 <h4 class="page-header">Identification</h4>
-                 <p class="text-center">Informações Paciente</p>
-                 <div class="form-group">
-                     <input class="form-control" type="text" placeholder="Prontuário">
-                 </div>      
-                 <div class="form-group">
-                     <input class="form-control" type="text" placeholder="Iniciais">
-                 </div>    
-                 <!-- datepicker -->                          
-                 <div class="form-group">
-                     <div class="container-fluid">
-                         <div class="row">
-                             <div class="col-xs-6 zera-padding-l">
-                                 <input type="text" id="exemplo" class="form-control" placeholder="Dt Nascimento">
-                             </div>
-                             <div class="col-xs-4 zera-padding-l">
-                                 <input type="text" class="form-control" placeholder="Idade">
-                             </div>		    
-                         </div>
-                     </div>
-                 </div>
-
-                 <!-- datepicker end -->    
-                 <div class="form-group">
-                 <form class="form-inline">      
-                   <label for="exampleInputName2">Gênero</label>
-                   <div class="btn-group">
-                   <button class="btn btn-default" data-switch-toggle="state" type="button">M</button>
-                   <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">F</button>
-                   <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                   </div>  	  
-                 </form>
-                 </div>
-
-                 <div class="form-group">      	
-                   <div class="btn-group">
-                   <button class="btn btn-default" data-switch-toggle="state" type="button">Caucasiano</button>
-                   <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">Afrodescendente</button>
-                   <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                   </div>
-                 </div>
-
-                 <div class="form-group">
-                 <form class="form-inline">
-
-                   <label for="exampleInputName2">Tabagismo</label>
-                   <div class="btn-group">
-                   <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                   <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                   <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">Ex</button>
-                   <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                   </div>
-
-                 </form>
-          </div>    <!-- tab-content -->
-	</script>
-	
-	<script type="text/ng-template" id="aba2.tpl.html">	
-		<div class="tab-pane active" id="viewTwo">
-
-            <ul class="nav nav-tabs-dot" style="margin:0 auto; display:table; text-align:center;">
-	        	 <li ng-click="controller.onClickSubTab('tab2-step1')" data-toggle="tab" ng-class="{active:controller.isActiveSubTab('tab2-step1')}" ></li>
- 		         <li ng-click="controller.onClickSubTab('tab2-step2')" data-toggle="tab" ng-class="{active:controller.isActiveSubTab('tab2-step2')}"></li>
-        	     <li ng-click="controller.onClickSubTab('tab2-step3')" data-toggle="tab" ng-class="{active:controller.isActiveSubTab('tab2-step3')}"></li>
-             </ul>
-             
-			<div class="tab-pane active" id="tab2-step1" ng-show="controller.isActiveSubTab('tab2-step1')">
-             
-                 <h4 class="page-header">Index</h4>
-                 <p class="text-left">Tipo de Síndrome Coronariana Aguda</p>
-                 <div class="container-fluid">
-                     <div class="form-group row">    
-                         <div class="col-sm-4">
-                             <div class="btn-group btn-group-2 input-group" data-toggle="buttons">
-                                 <label class="btn btn-success">
-                                 <input type="radio" name="options" id="option1" />IAMSSST</label>
-                                 <label class="btn btn-primary">
-                                 <input type="radio" name="options" id="option2" />IAMCSST</label>
-                             </div>
-                             <div class="btn-group btn-group-2 input-group" data-toggle="buttons">
-                                 <label class="btn btn-success">
-                                 <input type="radio" name="options" id="option1" />Angina Instável</label>
-                                 <label class="btn btn-primary">
-                                 <input type="radio" name="options" id="option2" />Desconhecido</label>
-                             </div>
-                         </div>  
-                     </div>    
-
-                     <div class="form-group row">   
-                         <fieldset class="scheduler-border">
-                         <legend class="scheduler-border">Tipo de Angina Instável</legend>
-                         <div class="control-group">
-                             <div class="form-group row">
-                                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                                 1. inicio recente
-                             </div>
-                             <div class="form-group row">
-                                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                                 2. agravo recente
-                             </div>
-                             <div class="form-group row">
-                                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                                 3. pós IAM 
-                             </div>
-                             <div class="form-group row">
-                                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                                 4. repouso 
-                             </div>
-                             <div class="form-group row">
-                                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                                 5. descopnhecido 
-                             </div>
-                         </div><!--control-group -->
-                         </fieldset>   
-                         <fieldset class="scheduler-border">
-                         <legend class="scheduler-border">Tipo de IAM</legend>
-                         <div class="control-group">
-                             <div class="form-group row">
-                                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                                 1. ruptura, erosão, dissecção, esp de placa
-                             </div>
-                             <div class="form-group row">
-                                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                                 2. demanda vs oferta de oxigênio
-                             </div>
-                             <div class="form-group row">
-                                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                                 3. morte súbita 
-                             </div>
-                             <div class="form-group row">
-                                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                                 4a. pós-ACTP 
-                             </div>
-                             <div class="form-group row">
-                                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                                 4b. trombose intra-stent 
-                             </div>
-                             <div class="form-group row">
-                                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                                 5. cirurgia de revasc.
-                             </div>
-                             <div class="form-group row">
-                                 <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                                 99. desconhecido
-                             </div>           
-                         </div><!--control-group -->
-                     </fieldset> 
-                   </div><!-- container-fluid -->    
+                <ul class="nav nav-tabs" style="margin:10px auto; display:table; text-align:center;">
+                    <li ng-repeat="tab in tabs" data-toggle="tab" ng-class="{active:controller.isActiveTab(tab.url)}" ng-click="controller.onClickTab(tab)">{{tab.title}}
+                    </li>
+                </ul>
+                <div id="mainView" class="area-forms">
+                    <div class="tab-content">
+                        <div ng-include="currentTab"></div>
+                    </div>
                 </div>
-            </div>    
+            </div>
 
-			<div class="tab-pane active" id="tab2-step2" ng-show="controller.isActiveSubTab('tab2-step2')">
-                  <h4 class="page-header">Index</h4>
-                  <p class="text-left">Informações do Caso</p>
-                  <div class="container-fluid">
-                    <div class="form-group row">  		  				        	
-                        <div class="zera-padding-l">
-                            <select class="form-control">
-                            <option>Origem do Caso</option>
-                            <option>2</option>
-                            </select>
+            <script type="text/ng-template" id="aba1.tpl.html">
+
+                <div class="tab-pane active" id="viewOne">
+                    <ul class="nav nav-tabs-dot" style="margin:0 auto; display:table; text-align:center;">
+                        <li ng-click="controller.onClickSubTab('tab1-step1')" data-toggle="tab" ng-class="{active:controller.isActiveSubTab('tab1-step1')}"></li>
+                        <li ng-click="controller.onClickSubTab('tab1-step2')" data-toggle="tab" ng-class="{active:controller.isActiveSubTab('tab1-step2')}"></li>
+                    </ul>
+
+                    <div class="tab-pane active" id="tab1-step1" ng-show="controller.isActiveSubTab('tab1-step1')">
+                        <h4 class="page-header">Identification</h4>
+                        <p class="text-center">Apresentação</p>
+                        <div class="form-group">
+                            <h3 class="text-center" style="margin-bottom:50px;">&lt;Research Goal&gt;</h3>
                         </div>
-                    </div><!-- form-group -->
+                        <div class="form-group">
+                            <h3 class="text-center" style="margin-bottom:50px;">&lt;Author&gt;</h3>
+                        </div>
+                        <div class="form-group" style="margin-bottom:50px;">
+                            <h3 class="text-center">&lt;Other Header Information&gt;</h3>
+                        </div>
+                        <p class="text-right">November/2015</p>
+                        </li>
+                    </div>
 
-                    <div class="form-group row">      
-                        <div class="zera-padding-l"><label>Início do Caso (Data/Hora)</label></div>
-                        <div class="zera-padding-l">
-                            <input type="text" id="exemplo2" class="form-control" placeholder="dd/mm/aa">
-                        </div> 
-                
-                       <div class="form-group ">
-                           <div class="zera-padding-l">
-                             <div class="range">
-                               <input type="range" name="range" min="1" max="60" value="50" onchange="range.value=value">
-                               <output id="range">50</output>
-                             </div>
-                           </div>  
-                       </div>      
-                   </div><!-- form-group row -->	
-                   
-                
-                   <div class="form-group row">      
-                       <div class="zera-padding-l"><label>Chegada no Hospital (Data/Hora)</label></div>
-                       <div class="zera-padding-l">
-                           <input type="text" id="exemplo3" class="form-control" placeholder="dd/mm/aa">
-                       </div> 
-
-                       <div class="form-group">
-                           <div class="zera-padding-l">
-                             <div class="range">
-                               <input type="range" name="range" min="1" max="60" value="50" onchange="range2.value=value">
-                               <output id="range2">50</output>
-                             </div>
-                           </div> 
-                       </div>
-                   </div><!-- form-group row -->	
-
-                   <div class="form-group row">        
-                       <label for="exampleInputName2">Desconforto presente ao chegar</label>
-                       <div class="btn-group">
-                           <button class="btn btn-default" data-switch-toggle="state" type="button">Sim</button>
-                           <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">Não</button>
-                           <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                       </div>  	          
-                   </div>
-
-                 </div><!-- container-fluid -->	
-             </div>
-
-             <div class="tab-pane active" id="tab2-step3" ng-show="controller.isActiveSubTab('tab2-step3')">
-               <h4 class="page-header">Index</h4>
-               <p class="text-left">Informação Cardíaca Geral / Peso e Altura</p>
-                   <div class="container-fluid">
-                       <div class="form-group row">  		  				        	
-                           <div class="zera-padding-l">
-                               <label>Pressão Arterial (mmHg)</label>
-                           </div>
-                           <div class="range">
-                               <input type="range" name="range" min="1" max="240" value="50" onchange="rangeM.value=value">
-                               <output id="rangeM">50</output>
-                           </div>                                  
-                       </div><!-- form-group -->
-                       <div class="form-group row">  		  				        	
-                           <div class="zera-padding-l">
-                               <label>Frequência Cardíaca (bpm)</label>
-                           </div>                           
-                           <div class="range">
-                               <input type="range" name="range" min="1" max="200" value="50" onchange="range3.value=value">
-                               <output id="range3">50</output>
-                           </div>                                                                                                      
-                       </div><!-- form-group -->
-                       <div class="form-group row">  		  				        	
-                           <div class="zera-padding-l">
-                               <label>Peso (Kg)</label>
-                           </div>
-                           <div class="range">
-                               <input type="range" name="range" min="1" max="300" value="50" onchange="range4.value=value">
-                               <output id="range4">50</output>
-                           </div>                                  
-                       </div><!-- form-group -->                                
-                       <div class="form-group row">  		  				        	
-                           <div class="zera-padding-l">
-                               <label>Altura (cm)</label>
-                           </div>                                 
-                           <div class="range">
-                               <input type="range" name="range" min="1" max="250" value="50" onchange="range5.value=value">
-                               <output id="range5">50</output>
-                           </div>                                                                 
-                       </div><!-- form-group -->                                    
-                       <div class="row">
-                           <div class="form-group">        
-                               <label class="col-xs-4 zera-padding-l">            
-                                    IMC (kg/m)
-                               </label>
-                               <div class="col-xs-4">                    
-                                   <input type="text" class="form-control"  placeholder="">
-                               </div>
-                           </div>
-                       </div><!-- row -->
-                       
-                   </div><!-- container-fluid -->    
-               </div>
-            </div>                 
-	</script>
-	
-	
-	<script type="text/ng-template" id="aba3.tpl.html">
-
-		<div class="tab-pane active" id="viewThree">
-			<ul class="nav nav-tabs-dot" style="margin:0 auto; display:table; text-align:center;">
-               <li ng-click="controller.onClickSubTab('tab3-step1')" data-toggle="tab" ng-class="{controller.active:isActiveSubTab('tab3-step1')}" ></li>
-               <li ng-click="controller.onClickSubTab('tab3-step2')" data-toggle="tab" ng-class="{controller.active:isActiveSubTab('tab3-step2')}"></li>
-			   <li ng-click="controller.onClickSubTab('tab3-step3')" data-toggle="tab" ng-class="{controller.active:isActiveSubTab('tab3-step3')}"></li>
-           </ul>
-           
-           <div class="tab-pane active" id="tab3-step1" ng-show="controller.isActiveSubTab('tab3-step1')">
-
-               <h4 class="page-header">Histórico</h4>
-                 <p class="text-left">História Médica parte1</p>
-                 <div class="container-fluid">  
-                     <div class="form-group">    
-                         <div class="row">                                    
-                             <div class="col-xs-6 zera-padding-l">                    
-                                 <div class="btn-group">
-                                     <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                     <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                     <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                 </div>  
-                             </div>
-                             <label class="col-xs-6 zera-padding-l">IAM anterior</label>
-                         </div><!-- row -->
-                     </div><!-- form-group -->
-                     <div class="form-group">    
-                         <div class="row">                                    
-                             <div class="col-xs-6 zera-padding-l">                    
-                                 <div class="btn-group">
-                                     <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                     <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                     <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                 </div>  
-                             </div>
-                             <label class="col-xs-6 zera-padding-l">Angina prévia</label>
-                         </div><!-- row -->
-                     </div><!-- form-group -->
-                     <div class="form-group">  
-                             <div class="row">                                    
-                             <div class="col-xs-6 zera-padding-l">                    
-                                 <div class="btn-group">
-                                     <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                     <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                     <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                 </div>  
-                             </div>
-                             <label class="col-xs-6 zera-padding-l">Desvio ST > 0.5mm</label>
-                         </div><!-- row -->
-                     </div><!-- form-group -->
-                     <div class="form-group">  
-                             <div class="row">                                    
-                             <div class="col-xs-6 zera-padding-l">                    
-                                 <div class="btn-group">
-                                     <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                     <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                     <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                 </div>  
-                             </div>
-                             <label class="col-xs-6 zera-padding-l">ICC</label>
-                         </div><!-- row -->
-                     </div><!-- form-group -->
-                     <div class="form-group">  
-                             <div class="row">                                    
-                             <div class="col-xs-6 zera-padding-l">                    
-                                 <div class="btn-group">
-                                     <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                     <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                     <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                 </div>  
-                             </div>
-                             <label class="col-xs-6 zera-padding-l">Hipertensão Arterial</label>
-                         </div><!-- row -->
-                     </div><!-- form-group -->
-                     <div class="form-group">  
-                             <div class="row">                                    
-                             <div class="col-xs-6 zera-padding-l">                    
-                                 <div class="btn-group">
-                                     <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                     <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                     <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                 </div>  
-                             </div>
-                             <label class="col-xs-6 zera-padding-l">Diabetes Mellitus</label>
-                         </div><!-- row -->
-                     </div><!-- form-group -->
-                     <div class="form-group">  
-                             <div class="row">                                    
-                             <div class="col-xs-6 zera-padding-l">                    
-                                 <div class="btn-group">
-                                     <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                     <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                     <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                 </div>  
-                             </div>
-                             <label class="col-xs-6 zera-padding-l">DAC familiar</label>
-                         </div><!-- row -->
-                     </div><!-- form-group -->
-                     <div class="form-group">  
-                             <div class="row">                                    
-                             <div class="col-xs-6 zera-padding-l">                    
-                                 <div class="btn-group">
-                                     <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                     <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                     <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                 </div>  
-                             </div>
-                             <label class="col-xs-6 zera-padding-l">Hipercolesterolemia</label>
-                         </div><!-- row -->
-                     </div><!-- form-group -->
-                     <div class="form-group">  
-                             <div class="row">                                    
-                             <div class="col-xs-6 zera-padding-l">                    
-                                 <div class="btn-group">
-                                     <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                     <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                     <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                 </div>  
-                             </div>
-                             <label class="col-xs-6 zera-padding-l">DCV</label>
-                         </div><!-- row -->
-                     </div><!-- form-group -->
-                     <div class="form-group">  
-                             <div class="row">                                    
-                             <div class="col-xs-6 zera-padding-l">                    
-                                 <div class="btn-group">
-                                     <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                     <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                     <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                 </div>  
-                             </div>
-                             <label class="col-xs-6 zera-padding-l">DAP</label>
-                         </div><!-- row -->
-                         <div class="form-group">  
-                             <div class="row">                                    
-                             <div class="col-xs-6 zera-padding-l">                    
-                                 <div class="btn-group">
-                                     <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                     <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                     <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                 </div>  
-                             </div>
-                             <label class="col-xs-6 zera-padding-l">DRC</label>
-                         </div><!-- row -->
-                     </div><!-- form-group -->   
-                     <div class="form-group">  
-                             <div class="row">                                    
-                             <div class="col-xs-6 zera-padding-l">                    
-                                 <div class="btn-group">
-                                     <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                     <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                     <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                 </div>  
-                             </div>
-                             <label class="col-xs-6 zera-padding-l">Tto c/ aspririna > 7d.</label>
-                         </div><!-- row -->
-                     </div><!-- form-group -->    
-                 </div><!-- container-fluid -->  
-              </div>   
-		   </div>
-		   
-           <div class="tab-pane active" id="tab3-step2" ng-show="controller.isActiveSubTab('tab3-step2')">
-                <h4 class="page-header">Histórico</h4>
-                <p class="text-left">História Médica parte2</p>
-                <div class="container-fluid">  
-                    <div class="form-group">    
-                        <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
-                                <div class="btn-group">
-                                    <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                </div>  
-                            </div>
-                            <label class="col-xs-6 zera-padding-l">CRM prévia</label>
-                        </div><!-- row -->
-                    </div><!-- form-group -->
-                    <div class="form-group">    
-                        <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
-                                <div class="btn-group">
-                                    <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                </div>  
-                            </div>
-                            <label class="col-xs-6 zera-padding-l">ACTP prévia</label>
-                        </div><!-- row -->
-                    </div><!-- form-group -->
-                    <div class="form-group">  
-                            <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
-                                <div class="btn-group">
-                                    <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                </div>  
-                            </div>
-                            <label class="col-xs-6 zera-padding-l">Neoplasia em tratame</label>
-                        </div><!-- row -->
-                    </div><!-- form-group -->                            
-                    <div class="form-group">  
-                            <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
-                                <div class="btn-group">
-                                    <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                </div>  
-                            </div>
-                            <label class="col-xs-6 zera-padding-l">DPOC severa</label>
-                        </div><!-- row -->
-                    </div><!-- form-group -->                           
-                    <div class="form-group">  
-                            <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
-                                <div class="btn-group">
-                                    <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                </div>  
-                            </div>
-                            <label class="col-xs-6 zera-padding-l">Anticoagulante VO (INR > 1,5)</label>
-                        </div><!-- row -->
-                    </div><!-- form-group -->
-                    <div class="form-group">  
-                            <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
-                                <div class="btn-group">
-                                    <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                </div>  
-                            </div>
-                            <label class="col-xs-6 zera-padding-l">Plaquetas < 100.000 cél./mm³</label>
-                        </div><!-- row -->
-                    </div><!-- form-group -->
-                    <div class="form-group">  
-                            <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
-                                <div class="btn-group">
-                                    <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                </div>  
-                            </div>
-                            <label class="col-xs-6 zera-padding-l">Hemoglobina < 10 g/dL</label>
-                        </div><!-- row -->
-                    </div><!-- form-group -->
-                    <div class="form-group">  
-                            <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
-                                <div class="btn-group">
-                                    <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                </div>  
-                            </div>
-                            <label class="col-xs-6 zera-padding-l">Hipersensibilidade à aspirina</label>
-                        </div><!-- row -->
-                        <div class="form-group">  
-                            <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
-                                <div class="btn-group">
-                                    <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                </div>  
-                            </div>
-                            <label class="col-xs-6 zera-padding-l">Uso de cocacína</label>
-                        </div><!-- row -->
-                    </div><!-- form-group -->   
-                    <div class="form-group">  
-                            <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
-                                <div class="btn-group">
-                                    <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                </div>  
-                            </div>
-                            <label class="col-xs-6 zera-padding-l">HIV+</label>
-                        </div><!-- row -->
-                    </div><!-- form-group -->    
-                        <div class="form-group">  
-                            <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
-                                <div class="btn-group">
-                                    <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
-                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
-                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
-                                </div>  
-                            </div>
-                            <label class="col-xs-6 zera-padding-l">HARRT</label>
-                        </div><!-- row -->
-                    </div><!-- form-group -->
-                </div>             
-          	 </div><!-- container-fluid -->
-           </div>
-           
-           <div class="tab-pane active" id="tab3-step3" ng-show="controller.isActiveSubTab('tab3-step3')">
-                <h4 class="page-header">Histórico</h4>
-                <p class="text-left">Tratamento da DM</p>
-                <div class="container-fluid">  
-                    <div class="form-group">    
-                        <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
-                                <div class="btn-group">
-                                    <div class="row">
-                                      <div class="col-sm-6 col-lg-4">                                                  
-                                          <input type="checkbox" checked data-toggle="toggle">
-                                      </div>          
+                    <div class="tab-pane" id="tab1-step2" ng-show="controller.isActiveSubTab('tab1-step2')">
+                        <h4 class="page-header">Identification</h4>
+                        <p class="text-center">Informações Paciente</p>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Prontuário">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Iniciais">
+                        </div>
+                        <!-- datepicker -->
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <input type="text" id="exemplo" class="form-control" placeholder="Dt Nascimento">
                                     </div>
-                                </div>  
-                            </div>
-                            <label class="col-xs-6 zera-padding-l">Insulina</label>
-                        </div><!-- row -->
-                    </div><!-- form-group -->
-                    <div class="form-group">    
-                        <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
-                                <div class="btn-group">
-                                    <div class="row">
-                                      <div class="col-sm-6 col-lg-4">            
-                                          <input type="checkbox" checked data-toggle="toggle">
-                                      </div>          
+                                    <div class="col-xs-4 zera-padding-l">
+                                        <input type="text" class="form-control" placeholder="Idade">
                                     </div>
-                                </div>  
+                                </div>
                             </div>
-                            <label class="col-xs-6 zera-padding-l">Hipoglicemiante Oral</label>
-                        </div><!-- row -->
-                    </div><!-- form-group -->
-                    <div class="form-group">    
-                        <div class="row">                                    
-                            <div class="col-xs-6 zera-padding-l">                    
+                        </div>
+
+                        <!-- datepicker end -->
+                        <div class="form-group">
+                            <form class="form-inline">
+                                <label>Gênero</label>
                                 <div class="btn-group">
-                                    <div class="row">
-                                      <div class="col-sm-6 col-lg-4">            
-                                          <input type="checkbox" checked data-toggle="toggle">
-                                      </div>          
-                                    </div>
-                                </div>  
+                                    <button class="btn btn-default" data-switch-toggle="state" type="button">M</button>
+                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">F</button>
+                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="btn-group">
+                                <button class="btn btn-default" data-switch-toggle="state" type="button">Caucasiano</button>
+                                <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">Afrodescendente</button>
+                                <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
                             </div>
-                            <label class="col-xs-6 zera-padding-l">Dieta</label>
-                        </div><!-- row -->
-                    </div><!-- form-group --> 
-                    
-                </div><!-- container-fluid -->             
-          	 </div>
-           </div>           
-		   
+                        </div>
 
-		</script>
+                        <div class="form-group">
+                            <form class="form-inline">
 
-	</section>
-  </div>
-</div>
+                                <label>Tabagismo</label>
+                                <div class="btn-group">
+                                    <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">Ex</button>
+                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                </div>
+
+                            </form>
+                        </div>
+                        <!-- tab-content -->
+            </script>
+
+            <script type="text/ng-template" id="aba2.tpl.html">
+                <div class="tab-pane active" id="viewTwo">
+
+                    <ul class="nav nav-tabs-dot" style="margin:0 auto; display:table; text-align:center;">
+                        <li ng-click="controller.onClickSubTab('tab2-step1')" data-toggle="tab" ng-class="{active:controller.isActiveSubTab('tab2-step1')}"></li>
+                        <li ng-click="controller.onClickSubTab('tab2-step2')" data-toggle="tab" ng-class="{active:controller.isActiveSubTab('tab2-step2')}"></li>
+                        <li ng-click="controller.onClickSubTab('tab2-step3')" data-toggle="tab" ng-class="{active:controller.isActiveSubTab('tab2-step3')}"></li>
+                    </ul>
+
+                    <div class="tab-pane active" id="tab2-step1" ng-show="controller.isActiveSubTab('tab2-step1')">
+
+                        <h4 class="page-header">Index</h4>
+                        <p class="text-left">Tipo de Síndrome Coronariana Aguda</p>
+                        <div class="container-fluid">
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <div class="btn-group btn-group-2 input-group" data-toggle="buttons">
+                                        <label class="btn btn-success">
+                                            <input type="radio" name="options" id="option1" />IAMSSST</label>
+                                        <label class="btn btn-primary">
+                                            <input type="radio" name="options" id="option2" />IAMCSST</label>
+                                    </div>
+                                    <div class="btn-group btn-group-2 input-group" data-toggle="buttons">
+                                        <label class="btn btn-success">
+                                            <input type="radio" name="options" id="option1" />Angina Instável</label>
+                                        <label class="btn btn-primary">
+                                            <input type="radio" name="options" id="option2" />Desconhecido</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <fieldset class="scheduler-border">
+                                    <legend class="scheduler-border">Tipo de Angina Instável</legend>
+                                    <div class="control-group">
+                                        <div class="form-group row">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 1. inicio recente
+                                        </div>
+                                        <div class="form-group row">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 2. agravo recente
+                                        </div>
+                                        <div class="form-group row">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 3. pós IAM
+                                        </div>
+                                        <div class="form-group row">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 4. repouso
+                                        </div>
+                                        <div class="form-group row">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 5. descopnhecido
+                                        </div>
+                                    </div>
+                                    <!--control-group -->
+                                </fieldset>
+                                <fieldset class="scheduler-border">
+                                    <legend class="scheduler-border">Tipo de IAM</legend>
+                                    <div class="control-group">
+                                        <div class="form-group row">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 1. ruptura, erosão, dissecção, esp de placa
+                                        </div>
+                                        <div class="form-group row">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 2. demanda vs oferta de oxigênio
+                                        </div>
+                                        <div class="form-group row">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 3. morte súbita
+                                        </div>
+                                        <div class="form-group row">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 4a. pós-ACTP
+                                        </div>
+                                        <div class="form-group row">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 4b. trombose intra-stent
+                                        </div>
+                                        <div class="form-group row">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 5. cirurgia de revasc.
+                                        </div>
+                                        <div class="form-group row">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"> 99. desconhecido
+                                        </div>
+                                    </div>
+                                    <!--control-group -->
+                                </fieldset>
+                            </div>
+                            <!-- container-fluid -->
+                        </div>
+                    </div>
+
+                    <div class="tab-pane active" id="tab2-step2" ng-show="controller.isActiveSubTab('tab2-step2')">
+                        <h4 class="page-header">Index</h4>
+                        <p class="text-left">Informações do Caso</p>
+                        <div class="container-fluid">
+                            <div class="form-group row">
+                                <div class="zera-padding-l">
+                                    <select class="form-control">
+                                        <option>Origem do Caso</option>
+                                        <option>2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- form-group -->
+
+                            <div class="form-group row">
+                                <div class="zera-padding-l">
+                                    <label>Início do Caso (Data/Hora)</label>
+                                </div>
+                                <div class="zera-padding-l">
+                                    <input type="text" id="exemplo2" class="form-control" placeholder="dd/mm/aa">
+                                </div>
+
+                                <div class="form-group ">
+                                    <div class="zera-padding-l">
+                                        <div class="range">
+                                            <input type="range" name="range" min="1" max="60" value="50" onchange="range.value=value">
+                                            <output id="range">50</output>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- form-group row -->
+
+
+                            <div class="form-group row">
+                                <div class="zera-padding-l">
+                                    <label>Chegada no Hospital (Data/Hora)</label>
+                                </div>
+                                <div class="zera-padding-l">
+                                    <input type="text" id="exemplo3" class="form-control" placeholder="dd/mm/aa">
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="zera-padding-l">
+                                        <div class="range">
+                                            <input type="range" name="range" min="1" max="60" value="50" onchange="range2.value=value">
+                                            <output id="range2">50</output>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- form-group row -->
+
+                            <div class="form-group row">
+                                <label for="exampleInputName2">Desconforto presente ao chegar</label>
+                                <div class="btn-group">
+                                    <button class="btn btn-default" data-switch-toggle="state" type="button">Sim</button>
+                                    <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">Não</button>
+                                    <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- container-fluid -->
+                    </div>
+
+                    <div class="tab-pane active" id="tab2-step3" ng-show="controller.isActiveSubTab('tab2-step3')">
+                        <h4 class="page-header">Index</h4>
+                        <p class="text-left">Informação Cardíaca Geral / Peso e Altura</p>
+                        <div class="container-fluid">
+                            <div class="form-group row">
+                                <div class="zera-padding-l">
+                                    <label>Pressão Arterial (mmHg)</label>
+                                </div>
+                                <div class="range">
+                                    <input type="range" name="range" min="1" max="240" value="50" onchange="rangeM.value=value">
+                                    <output id="rangeM">50</output>
+                                </div>
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group row">
+                                <div class="zera-padding-l">
+                                    <label>Frequência Cardíaca (bpm)</label>
+                                </div>
+                                <div class="range">
+                                    <input type="range" name="range" min="1" max="200" value="50" onchange="range3.value=value">
+                                    <output id="range3">50</output>
+                                </div>
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group row">
+                                <div class="zera-padding-l">
+                                    <label>Peso (Kg)</label>
+                                </div>
+                                <div class="range">
+                                    <input type="range" name="range" min="1" max="300" value="50" onchange="range4.value=value">
+                                    <output id="range4">50</output>
+                                </div>
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group row">
+                                <div class="zera-padding-l">
+                                    <label>Altura (cm)</label>
+                                </div>
+                                <div class="range">
+                                    <input type="range" name="range" min="1" max="250" value="50" onchange="range5.value=value">
+                                    <output id="range5">50</output>
+                                </div>
+                            </div>
+                            <!-- form-group -->
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-xs-4 zera-padding-l">
+                                        IMC (kg/m)
+                                    </label>
+                                    <div class="col-xs-4">
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- row -->
+
+                        </div>
+                        <!-- container-fluid -->
+                    </div>
+                </div>
+            </script>
+
+
+            <script type="text/ng-template" id="aba3.tpl.html">
+
+                <div class="tab-pane active" id="viewThree">
+                    <ul class="nav nav-tabs-dot" style="margin:0 auto; display:table; text-align:center;">
+                        <li ng-click="controller.onClickSubTab('tab3-step1')" data-toggle="tab" ng-class="{controller.active:isActiveSubTab('tab3-step1')}"></li>
+                        <li ng-click="controller.onClickSubTab('tab3-step2')" data-toggle="tab" ng-class="{controller.active:isActiveSubTab('tab3-step2')}"></li>
+                        <li ng-click="controller.onClickSubTab('tab3-step3')" data-toggle="tab" ng-class="{controller.active:isActiveSubTab('tab3-step3')}"></li>
+                    </ul>
+
+                    <div class="tab-pane active" id="tab3-step1" ng-show="controller.isActiveSubTab('tab3-step1')">
+
+                        <h4 class="page-header">Histórico</h4>
+                        <p class="text-left">História Médica parte1</p>
+                        <div class="container-fluid">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">IAM anterior</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">Angina prévia</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">Desvio ST > 0.5mm</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">ICC</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">Hipertensão Arterial</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">Diabetes Mellitus</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">DAC familiar</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">Hipercolesterolemia</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">DCV</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">DAP</label>
+                                </div>
+                                <!-- row -->
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6 zera-padding-l">
+                                            <div class="btn-group">
+                                                <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                                <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                                <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                            </div>
+                                        </div>
+                                        <label class="col-xs-6 zera-padding-l">DRC</label>
+                                    </div>
+                                    <!-- row -->
+                                </div>
+                                <!-- form-group -->
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6 zera-padding-l">
+                                            <div class="btn-group">
+                                                <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                                <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                                <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                            </div>
+                                        </div>
+                                        <label class="col-xs-6 zera-padding-l">Tto c/ aspririna > 7d.</label>
+                                    </div>
+                                    <!-- row -->
+                                </div>
+                                <!-- form-group -->
+                            </div>
+                            <!-- container-fluid -->
+                        </div>
+                    </div>
+
+                    <div class="tab-pane active" id="tab3-step2" ng-show="controller.isActiveSubTab('tab3-step2')">
+                        <h4 class="page-header">Histórico</h4>
+                        <p class="text-left">História Médica parte2</p>
+                        <div class="container-fluid">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">CRM prévia</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">ACTP prévia</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">Neoplasia em tratame</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">DPOC severa</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">Anticoagulante VO (INR > 1,5)</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">Plaquetas
+                                        < 100.000 cél./mm³</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">Hemoglobina
+                                        < 10 g/dL</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                            <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                            <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">Hipersensibilidade à aspirina</label>
+                                </div>
+                                <!-- row -->
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6 zera-padding-l">
+                                            <div class="btn-group">
+                                                <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                                <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                                <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                            </div>
+                                        </div>
+                                        <label class="col-xs-6 zera-padding-l">Uso de cocacína</label>
+                                    </div>
+                                    <!-- row -->
+                                </div>
+                                <!-- form-group -->
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6 zera-padding-l">
+                                            <div class="btn-group">
+                                                <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                                <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                                <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                            </div>
+                                        </div>
+                                        <label class="col-xs-6 zera-padding-l">HIV+</label>
+                                    </div>
+                                    <!-- row -->
+                                </div>
+                                <!-- form-group -->
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6 zera-padding-l">
+                                            <div class="btn-group">
+                                                <button class="btn btn-default" data-switch-toggle="state" type="button">S</button>
+                                                <button class="btn btn-default" data-switch-value="true" data-switch-set="state" type="button">N</button>
+                                                <button class="btn btn-default" data-switch-value="false" data-switch-set="state" type="button">?</button>
+                                            </div>
+                                        </div>
+                                        <label class="col-xs-6 zera-padding-l">HARRT</label>
+                                    </div>
+                                    <!-- row -->
+                                </div>
+                                <!-- form-group -->
+                            </div>
+                        </div>
+                        <!-- container-fluid -->
+                    </div>
+
+                    <div class="tab-pane active" id="tab3-step3" ng-show="controller.isActiveSubTab('tab3-step3')">
+                        <h4 class="page-header">Histórico</h4>
+                        <p class="text-left">Tratamento da DM</p>
+                        <div class="container-fluid">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-lg-4">
+                                                    <input type="checkbox" checked data-toggle="toggle">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">Insulina</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-lg-4">
+                                                    <input type="checkbox" checked data-toggle="toggle">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">Hipoglicemiante Oral</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6 zera-padding-l">
+                                        <div class="btn-group">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-lg-4">
+                                                    <input type="checkbox" checked data-toggle="toggle">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label class="col-xs-6 zera-padding-l">Dieta</label>
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- form-group -->
+
+                        </div>
+                        <!-- container-fluid -->
+                    </div>
+                </div>
+
+
+            </script>
+
+        </section>
+        </div>
+        </div>

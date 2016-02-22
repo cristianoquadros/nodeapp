@@ -4,12 +4,13 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "body-parser": "^1.14.2",
-    "express": "^4.13.3",
-    "fs": "0.0.2",
+    "body-parser": "^1.15.0",
+    "errorhandler": "^1.4.3",
+    "express": "*",
     "method-override": "^2.3.5",
-    "mongoose": "^4.3.7",
-    "morgan": "^1.6.1"
+    "mongoose": "^4.4.4",
+    "morgan": "^1.7.0",
+    "path": "*"
   },
   "devDependencies": {},
   "scripts": {

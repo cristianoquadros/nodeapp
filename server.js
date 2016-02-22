@@ -1,27 +1,29 @@
 /* global __dirname */
     // set up 
-    var express   = require('express');
-    var fs        = require('fs');
-    var app       = express(); 
-    var mongoose = require('mongoose');                
-    var morgan   = require('morgan');                // log requests to the console (express4)
-    var bodyParser = require('body-parser');         // pull information from HTML POST (express4)
-    var methodOverride = require('method-override');    
+    var http = require('http');
+    var express = require('express');
+    var path = require('path');   
+    var logger = require('morgan');
+    var methodOverride = require('method-override');
+    var bodyParser = require('body-parser');
+    var errorHandler = require('errorhandler');
+    var mongoose = require('mongoose'); 
+    var app       = express();   
     
     // Openshift
-    var ipaddress = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
-    var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
-    var dbUrl     = process.env.OPENSHIFT_MONGODB_DB_URL || 'localhost:27017';
-    var appName   = process.env.OPENSHIFT_APP_NAME || '/nodeapp';
-
+    const ipaddress = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
+    const port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+    const dbUrl     = process.env.OPENSHIFT_MONGODB_DB_URL || 'localhost:27017';
+    const appName   = process.env.OPENSHIFT_APP_NAME || '/nodeapp';
+    const _dirroute = path.join(__dirname, "app/routes");
 
     // configuration
-    app.use(express.static(__dirname + '/public'));         // set the static files location /public/img will be /img for users;
-    app.use(morgan('dev'));                                         // log every request to the console
-    app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
-    app.use(bodyParser.json());                                     // parse application/json
-    app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
-    app.use(methodOverride());    
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(methodOverride());
+    app.use(express.static(path.join(__dirname + '/public'))); 
+    app.set("views", path.join(__dirname, "public/views"));
+    app.set("index", path.join(__dirname, "public/index.html"));    
 
     // database
     mongoose.connect(dbUrl + appName); 	
@@ -29,13 +31,17 @@
     db.once('open', function() {
         console.log('Mongo DB connect');
     });
+    
+    // error handling middleware should be loaded after the loading the routes
+    if ('development' == app.get('env')) {
+         app.use(errorHandler());
+    }    
 
     // routes 
-    require('./app/routes/defaultRoute.js')(app);
-    require('./app/routes/pacienteRoute.js')(app);    
+    require(_dirroute + '/defaultRoute.js')(app);
+    require(_dirroute + '/pacienteRoute.js')(app);    
 
     // listen 
     app.listen(port, ipaddress, function() {
         console.log('%s: Node server started on %s:%d ...', Date(Date.now() ), ipaddress, port);
-    }); 
-    
+    });     

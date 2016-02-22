@@ -1,7 +1,10 @@
 // app/routes.js
 
 module.exports = function(app) {
-    app   
+    app.get('/', function(req, res) {
+        console.log('Init session');
+        res.sendFile(app.get("index"));
+     })
     .get('/research/', function(req, res) {
         console.log('Call Rest Function');
         
