@@ -5,12 +5,11 @@
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.15.0",
-    "errorhandler": "^1.4.3",
-    "express": "*",
+    "express": "^4.13.4",
     "method-override": "^2.3.5",
-    "mongoose": "^4.4.4",
-    "morgan": "^1.7.0",
-    "path": "*"
+    "mongo-sanitize": "^1.0.0",
+    "mongoose": "^4.4.7",
+    "path": "^0.12.7"
   },
   "devDependencies": {},
   "scripts": {

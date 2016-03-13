@@ -18,6 +18,8 @@
             $scope.submitForm = submitForm;
             $scope.items = {};
             $scope.paciente = new Paciente();
+	        $scope.selectedRow = null;      
+            $scope.setClickedRow = clickedRow;      
 
             //Execute
             self.init();
@@ -42,6 +44,10 @@
                           $scope.paciente = new Paciente(); 
                     })
                 $location.path('/patient');    
-            }           
+            }  
+            
+	        function clickedRow(index){
+		        $scope.selectedRow = index;
+	        }                     
         }     
 })();
