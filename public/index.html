@@ -46,7 +46,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="#" onclick="closeNavCollapse()">Researches</a></li>
                             <li><a href="#/patient" onclick="closeNavCollapse()">Patients</a></li>
-                            <li><a href="#" onclick="closeNavCollapse()">Get Templates</a></li>
+                            <li><a href="#/template" onclick="closeNavCollapse()">Get Templates</a></li>
                             <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Shared</li>
                             <li><a href="#" onclick="closeNavCollapse()">Work Group</a></li>
@@ -82,14 +82,17 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>	
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-messages.min.js"></script>   	
     
-    <script src="app.js"></script>		
+    <script src="app/hu-components.js"></script>
+    <script src="app/app.js"></script>
+		
     
-    <script src="controllers/activitiesController.js"></script>
-    <script src="controllers/patientController.js"></script>		
-    <script src="controllers/researchController.js"></script>
-    <script src="controllers/formController.js"></script>	
+    <script src="controllers/ActivitiesController.js"></script>
+    <script src="controllers/PatientController.js"></script>		
+    <script src="controllers/ResearchController.js"></script>
+    <script src="controllers/FormController.js"></script>
+    <script src="controllers/TemplateController.js"></script>		
     
-    <script src="services/patientService.js"></script>         
+    <script src="services/PatientService.js"></script>         
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

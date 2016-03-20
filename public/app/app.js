@@ -11,7 +11,8 @@
         .module('rlab-app',[
         'ngResource', 
         'ngRoute', 
-        'ngMessages'])
+        'ngMessages',
+        'huComponents'])
     	.config(['$routeProvider', viewRouter])
         .controller('MainController', ['$rootScope', '$scope', MainController])
         .factory('GlobalService', ['$location', GlobalService])
@@ -23,24 +24,28 @@
         $routeProvider
             .when('/home', {
                 controller:'MainController',
-                templateUrl:'home.html',
+                templateUrl:'home.html'
             })  
             .when('/research', {
                 controller:'ResearchController as controller',
-                templateUrl:'views/researchList.html',
+                templateUrl:'views/researchList.html'
             })
             .when('/fichade', {
                 controller:'FormController as controller',
-                templateUrl:'views/forms/prototipo-hu.html',
+                templateUrl:'views/forms/prototipo-hu.html'
             })
             .when('/patient', {
                 controller:'PatientController as controller',
-                templateUrl:'views/patient/patientList.html',
+                templateUrl:'views/patient/patientList.html'
             })
             .when('/newpatient', {
                 controller:'PatientController as controller',
-                templateUrl:'views/patient/patientCrud.html',
-            })            
+                templateUrl:'views/patient/patientCrud.html'
+            })       
+            .when('/template', {
+                controller:'TemplateController as controller',
+                templateUrl:'views/template/editTemplate.html'
+            })                 
             .otherwise({
                redirectTo: '/home'
             });
@@ -57,12 +62,10 @@
     function GlobalService ($location) {
         var service = {
             go : go
-        };
-        
+        };        
         function go(path) {
                 $location.path( path ); 
-        }            
-        
+        }
         return service;    
     }    
     

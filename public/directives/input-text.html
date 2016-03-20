@@ -1,0 +1,6 @@
+<div class="form-group" ng-class="class"> 
+    <input id="tag-q{{index}}"  type="hidden" ng-model="answer.tag" ng-init="answer.tag = tag" />
+    <input id="index-q{{index}}"  type="hidden" ng-model="index.tag" ng-init="answer.index = index" />
+    <label id="label-q{{index}}" for="input-q{{index}}">{{label}}:</label>
+    <input id="input-q{{index}}" type="{{type}}" class="form-control" ng-model="answer.value" style="{{inputstyle}}" />
+</div> 

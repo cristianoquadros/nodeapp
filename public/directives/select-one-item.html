@@ -1,0 +1,12 @@
+<div class="form-group" ng-class="class"> 
+    <input id="tag-q{{index}}"  type="hidden" ng-model="answer.tag" ng-init="answer.tag = tag" />
+    <input id="index-q{{index}}"  type="hidden" ng-model="index.tag" ng-init="answer.index = index" />
+    <label id="label-q{{index}}" for="select-q{{index}}">{{label}}:</label>
+        
+    <div id="select-one-q{{index}}" class="btn-group btn-group-justified" role="group" style="{{selectstyle}}">
+        <div class="btn-group" role="group" ng-repeat="opt in options">
+            <button type="button" class="btn btn-default" ng-class="{'active':answer.value==opt.value}"
+                ng-click="changeComponent(opt.value)">{{opt.label}}</button>
+        </div>
+    </div>    
+</div>

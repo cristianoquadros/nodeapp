@@ -1,0 +1,8 @@
+<div class="form-group" ng-class="class"> 
+    <input id="tag-q{{index}}"  type="hidden" ng-model="answer.tag" ng-init="answer.tag = tag" />
+    <input id="index-q{{index}}"  type="hidden" ng-model="index.tag" ng-init="answer.index = index" />
+    <label id="label-q{{index}}" for="select-q{{index}}">{{label}}:</label>
+    <select id="select-q{{index}}" class="form-control" ng-model="answer.value" style="{{selectstyle}}">
+        <option ng-repeat="opt in options">{{opt}}</option>
+    </select>
+</div>
