@@ -2,15 +2,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // create a schema
-var patientSchema = new Schema({
-	name :  { type: String, required: true},
+var templateSchema = new Schema({
+	name :  { type: String, required: true, unique: true },
+    description : String,
     code : String,
-    birth : Date,
     created_at: Date,
     updated_at: Date    
 });
 
-patientSchema.pre('save', function(next) {
+templateSchema.pre('save', function(next) {
     var currentDate = new Date();
     this.updated_at = currentDate;
     if (!this.created_at){
@@ -19,5 +19,5 @@ patientSchema.pre('save', function(next) {
     next();
 });
 
-var Patient = mongoose.model('Patient', patientSchema);
-module.exports = Patient;
+var template = mongoose.model('Template', templateSchema);
+module.exports = template;

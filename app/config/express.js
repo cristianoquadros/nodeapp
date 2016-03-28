@@ -6,11 +6,9 @@ var path = require('path');
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
     
-module.exports = function(rootPath) {    
+var moduleExpress = function() {    
     var app  = express();  
     var appDir = path.dirname(require.main.filename); 
-    
-    console.log(appDir);
 
     // configuration
     app.use(bodyParser.json());
@@ -23,6 +21,9 @@ module.exports = function(rootPath) {
     // routes 
     require('../routes/defaultRoute.js')(app);
     require('../routes/pacienteRoute.js')(app);    
+    require('../routes/templateRoute.js')(app);  
  
     return app;
 }  
+
+module.exports = moduleExpress();

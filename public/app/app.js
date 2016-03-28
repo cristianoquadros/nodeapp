@@ -44,8 +44,12 @@
             })       
             .when('/template', {
                 controller:'TemplateController as controller',
-                templateUrl:'views/template/editTemplate.html'
-            })                 
+                templateUrl:'views/template/templateList.html'
+            })    
+            .when('/edit-template', {
+                controller:'TemplateController as controller',
+                templateUrl:'views/template/templateEdit.html'
+            })                           
             .otherwise({
                redirectTo: '/home'
             });

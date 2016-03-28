@@ -1,11 +1,10 @@
 var mongoose = require('mongoose');
-
-mongoose.set('debug',true);
-
 const dbUrl     = process.env.OPENSHIFT_MONGODB_DB_URL || 'localhost:27017';
 const appName   = process.env.OPENSHIFT_APP_NAME || '/nodeapp';
 
-module.exports = function() {  
+mongoose.set('debug',true);
+
+var mongooseModule = function() {      
     var uri = dbUrl + appName;
     mongoose.connect(uri); 	
     
@@ -28,6 +27,7 @@ module.exports = function() {
             // 0 indica que a finalização ocorreu sem erros
             process.exit(0);
         });
-    });  
-    
+    });    
 }    
+
+exports.connect = mongooseModule;
