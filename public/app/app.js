@@ -46,8 +46,8 @@
                 controller:'TemplateController as controller',
                 templateUrl:'views/template/templateList.html'
             })    
-            .when('/edit-template', {
-                controller:'TemplateController as controller',
+            .when('/template-edit', {
+                controller:'TemplateEditController as controller',
                 templateUrl:'views/template/templateEdit.html'
             })                           
             .otherwise({
