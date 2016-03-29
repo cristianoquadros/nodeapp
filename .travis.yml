@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "5"
+install:
+  - npm install  
+services:
+  - mongodb
+deploy:
+  provider: openshift
+  user: $EMAIL_ADDRESS
+  password:decline182
+  app: $APP_NAME
+  domain: $DOMAIN_NAME
+  on: master
