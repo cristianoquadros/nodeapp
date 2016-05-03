@@ -26,7 +26,7 @@
                 inputstyle:'@',
                 tag:'@'
             },
-            templateUrl: "../directives/input-text.html", 
+            templateUrl: "/public/directives/input-text.html", 
             link: function (scope, element, attrs, ctrl) {     
                 if (!scope.type){
                     scope.type='text';
@@ -51,7 +51,7 @@
                 inputStyle:'@',
                 rows:'@'
             },
-            templateUrl: "../directives/input-textarea.html", 
+            templateUrl: "/public/directives/input-textarea.html", 
             link: function (scope, element, attrs, ctrl) {                      
                 element.bind("change", function () {     
                     ctrl.$setViewValue(scope.answer);
@@ -73,7 +73,7 @@
                 selectStyle:'@',
                 options:'='
             },
-            templateUrl: "../directives/select-item.html", 
+            templateUrl: "/public/directives/select-item.html", 
             link: function (scope, element, attrs, ctrl) {                      
                 element.bind("change", function () {     
                     ctrl.$setViewValue(scope.answer);
@@ -95,7 +95,7 @@
                 selectStyle:'@',
                 options:'='
             },
-            templateUrl: "../directives/select-one-item.html", 
+            templateUrl: "/public/directives/select-one-item.html", 
             link: function (scope, element, attrs, ctrl) {   
                 scope.changeComponent = function(value){    
                     scope.answer.value=value;           
