@@ -25,7 +25,7 @@
             self.init();
             
             function Paciente() {
-                this.name = null;
+                this.alias = null;
                 this.code = null;
                 this.birth = null;
             } 

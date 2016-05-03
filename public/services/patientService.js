@@ -28,7 +28,7 @@
             
             function persist(){
                 var resource = $resource(urlBase+ "save",
-                     { name: '@name', code: '@code', birth: '@birth' }, 
+                     { alias: '@alias', code: '@code', birth: '@birth' }, 
                      {'save': { method: 'POST' }
                 });
                 return resource;       

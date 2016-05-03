@@ -15,8 +15,11 @@ var moduleExpress = function() {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(methodOverride());
     app.use(express.static('public')); 
+    app.use('/bower_components',   express.static(path.join(appDir,'/bower_components')));
+    
     app.set("views", path.join(appDir, '/public/views'));
-    app.set("index",  path.join(appDir, '/public/index.html'));    
+    app.set("index",  path.join(appDir, '/public/index.html')); 
+
 
     // routes 
     require('../routes/defaultRoute.js')(app);

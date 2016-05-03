@@ -1,13 +1,19 @@
 var mongoose = require('mongoose');
+var researchSchema = require('./researchModel.js');
 var Schema = mongoose.Schema;
 
 // create a schema
 var patientSchema = new Schema({
-	name :  { type: String, required: true},
+	alias :  { type: String, required: true},
     code : String,
     birth : Date,
+    comment : String,
+    origin: String,
+    contact: String,
+    user: String,
     created_at: Date,
-    updated_at: Date    
+    updated_at: Date,
+    researches : [researchSchema]  
 });
 
 patientSchema.pre('save', function(next) {

@@ -6,8 +6,9 @@ var templateSchema = new Schema({
 	name :  { type: String, required: true, unique: true },
     description : String,
     code : String,
+    user:String,
     created_at: Date,
-    updated_at: Date    
+    updated_at: Date 
 });
 
 templateSchema.pre('save', function(next) {
@@ -19,5 +20,5 @@ templateSchema.pre('save', function(next) {
     next();
 });
 
-var template = mongoose.model('Template', templateSchema);
-module.exports = template;
+var Template = mongoose.model('Template', templateSchema);
+module.exports = Template;

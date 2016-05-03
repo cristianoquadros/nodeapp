@@ -10,11 +10,17 @@
     "mocha": "^2.4.5",
     "mongo-sanitize": "^1.0.0",
     "mongoose": "^4.4.7",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "wiredep": "^4.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.0.0",
+    "gulp-util": "^3.0.7",
+    "wiredep": "^4.0.0"
+  },
   "scripts": {
-   "test": "./node_modules/.bin/mocha --reporter spec"
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",

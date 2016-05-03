@@ -1,0 +1,26 @@
+{
+  "name": "nodeapp",
+  "description": "Beta application for RLAB",
+  "main": "server.js",
+  "authors": [
+    "Cristiano Quadros"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/cristianoquadros/nodeapp",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "angular": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "angular-resource": "^1.5.5",
+    "angular-messages": "^1.5.5",
+    "jquery": "^2.2.3"
+  }
+}

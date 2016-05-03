@@ -2,3 +2,43 @@
   background-color: dodgerblue;
   color:#eeeeee;
 }
+
+.callout-info {
+    border-left-color: #1b809e !important;
+}
+
+.callout-warning {
+    border-left-color: #aa6708 !important;
+}
+
+.callout {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #eee;
+    border-image: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px 1px 1px 5px;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.callout-warning h4 {
+    color: #aa6708;
+}
+
+.callout h4 {
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.callout-info h4 {
+    color: #1b809e;
+}
+
+.callout h4 {
+    margin-bottom: 5px;
+    margin-top: 0;
+}
