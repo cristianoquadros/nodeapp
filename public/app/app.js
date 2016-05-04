@@ -24,31 +24,31 @@
         $routeProvider
             .when('/home', {
                 controller:'MainController',
-                templateUrl:'/public/home.html'
+                templateUrl:'/home.html'
             })  
             .when('/research', {
                 controller:'ResearchController as controller',
-                templateUrl:'/public/views/researchList.html'
+                templateUrl:'/views/researchList.html'
             })
             .when('/fichade', {
                 controller:'FormController as controller',
-                templateUrl:'/public/views/forms/prototipo-hu.html'
+                templateUrl:'/views/forms/prototipo-hu.html'
             })
             .when('/patient', {
                 controller:'PatientController as controller',
-                templateUrl:'/public/views/patient/patientList.html'
+                templateUrl:'/views/patient/patientList.html'
             })
             .when('/newpatient', {
                 controller:'PatientController as controller',
-                templateUrl:'/public/views/patient/patientCrud.html'
+                templateUrl:'/views/patient/patientCrud.html'
             })       
             .when('/template', {
                 controller:'TemplateController as controller',
-                templateUrl:'/public/views/template/templateList.html'
+                templateUrl:'/views/template/templateList.html'
             })    
             .when('/template-edit', {
                 controller:'TemplateEditController as controller',
-                templateUrl:'/public/views/template/templateEdit.html'
+                templateUrl:'/views/template/templateEdit.html'
             })                           
             .otherwise({
                redirectTo: '/home'

@@ -14,8 +14,9 @@ var moduleExpress = function() {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(methodOverride());
+    app.use(express.static(path.join(appDir, '/public')));
     app.use('/bower_components', express.static(path.join(appDir,'/bower_components')));
-    app.use('/public', express.static(path.join(appDir, '/public')));
+
     
     app.set("views", path.join(appDir, '/public/views'));
     app.set("index",  path.join(appDir, '/public/index.html')); 
